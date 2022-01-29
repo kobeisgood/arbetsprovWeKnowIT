@@ -15,7 +15,7 @@ interface Props {
 export const PageText = ( props:Props ) => {
     return(
         <View> 
-            <Text style={{ fontSize: 24, marginTop:50 }}> {props.text} </Text>
+            <Text style={{ fontSize: 24 }}> {props.text} </Text>
         </View>
     )
 }
