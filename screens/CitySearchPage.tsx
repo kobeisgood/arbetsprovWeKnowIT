@@ -10,18 +10,19 @@ import { NavigatorParamsList } from '../types'
 
 import { PageText } from '../components/PageText'
 import { BackButton } from '../components/BackButton'
-
+import { SearchButton } from '../components/SearchButton'
 
 interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'CitySearch'>
 }
 
+// TODO: add functionality 
 export const CitySearchPage = ( props:Props ) => {
     return (
         <View style={{marginTop:200}}>
-            <BackButton navigation={props.navigation}></BackButton>
+            <BackButton navigation={props.navigation}/>
             <PageText text="SEARCH BY CITY"></PageText>
-            <Button title="ADD-SEARCH-ICON-HERE" onPress={() => props.navigation.navigate('Home')} />
+            <SearchButton onPress={() => null}/>
         </View>
     )
 }
