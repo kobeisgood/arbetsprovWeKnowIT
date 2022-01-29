@@ -16,7 +16,7 @@ interface Props{
 
 export const HomePage = ( props:Props ) => {
     return (
-        <View> 
+        <View style={{marginTop:200}}> 
             <PageText text="CityPop"></PageText>
             <NavigationButton title="SEARCH BY CITY" onPress={() => props.navigation.navigate('CitySearch')} />
             <NavigationButton title="SEARCH BY COUNTRY" onPress={() => props.navigation.navigate('CountrySearch')} />

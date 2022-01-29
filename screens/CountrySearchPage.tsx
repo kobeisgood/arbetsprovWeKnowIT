@@ -19,7 +19,7 @@ interface Props{
 
 export const CountrySearchPage = ( props:Props ) => {
     return (
-        <View> 
+        <View style={{marginTop:200}}> 
             <Button title="CityPop" onPress={() => props.navigation.goBack()} />
             <PageText text="SEARCH BY COUNTRY"></PageText>
             <Button title="ADD-SEARCH-ICON-HERE" onPress={() => props.navigation.navigate('Home')} />
