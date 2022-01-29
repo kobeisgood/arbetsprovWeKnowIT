@@ -10,6 +10,8 @@ import { StackNavigationProp } from '@react-navigation/stack'
 import { NavigatorParamsList } from '../types'
 
 import { PageText } from '../components/PageText'
+import { NavigationButton } from '../components/NavigationButton' // will be used later after search
+
 
 interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'CountrySearch'>
