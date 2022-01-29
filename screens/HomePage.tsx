@@ -4,7 +4,6 @@
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack'
 import { NavigatorParamsList } from '../types'
-import { NavigationContainer } from '@react-navigation/native';
 
 interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'Home'>
