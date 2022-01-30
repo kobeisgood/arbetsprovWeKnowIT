@@ -18,8 +18,8 @@ export const HomePage = ( props:Props ) => {
     return (
         <View style={{marginTop:200}}> 
             <PageText text="CityPop"></PageText>
-            <NavigationButton title="SEARCH BY CITY" onPress={() => props.navigation.navigate('CitySearch')} />
-            <NavigationButton title="SEARCH BY COUNTRY" onPress={() => props.navigation.navigate('CountrySearch')} />
+            <NavigationButton text="SEARCH BY CITY" onPress={() => props.navigation.navigate('CitySearch')} />
+            <NavigationButton text="SEARCH BY COUNTRY" onPress={() => props.navigation.navigate('CountrySearch')} />
         </View>        
     )
 }
