@@ -8,7 +8,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack'
 import { NavigatorParamsList } from '../types'
 
-import { fetchCityPopulation } from '../api/cities';
+import { fetchCityPopulation } from '../api/Cities';
 
 import { PageText } from '../components/PageText'
 import { BackButton } from '../components/BackButton'
@@ -18,7 +18,7 @@ interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'CitySearch'>
 }
 
-// TODO: add functionality 
+// TODO: add functionality to handle a search 
 export const CitySearchPage = ( props:Props ) => {
     return (
         <View style={{marginTop:200}}>
