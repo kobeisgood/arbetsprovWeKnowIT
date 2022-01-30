@@ -2,8 +2,6 @@
  * API for fetching information about cities 
  */
 
-import { API_PATH } from "@env"
-
 /**
  * 
  * @param cityInput The city the user has inputted 
