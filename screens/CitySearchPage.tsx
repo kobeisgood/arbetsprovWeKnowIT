@@ -8,6 +8,8 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack'
 import { NavigatorParamsList } from '../types'
 
+import { fetchCityPopulation } from '../api/cities';
+
 import { PageText } from '../components/PageText'
 import { BackButton } from '../components/BackButton'
 import { SearchButton } from '../components/SearchButton'
@@ -22,7 +24,7 @@ export const CitySearchPage = ( props:Props ) => {
         <View style={{marginTop:200}}>
             <BackButton navigation={props.navigation}/>
             <PageText text="SEARCH BY CITY"></PageText>
-            <SearchButton onPress={() => null}/>
+            <SearchButton onPress={fetchCityPopulation}/>
         </View>
     )
 }
