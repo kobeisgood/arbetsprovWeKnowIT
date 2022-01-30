@@ -22,8 +22,7 @@ interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'CitySearch'>
 }
 
-// TODO: add functionality to handle a search        
-
+// TODO: fix bug where initial state of hasSearched forces a re-render and messes up the fetch
 export const CitySearchPage = ( props:Props ) => {
 
     const [cityInput, setCityInput] = useState('')
