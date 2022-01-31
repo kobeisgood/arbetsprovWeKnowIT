@@ -6,17 +6,19 @@
  * (WILL FINISH STYLING LATER)
  */
 
- import { StyleSheet, View, Button, NativeTouchEvent, NativeSyntheticEvent } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Text} from 'react-native';
 
  interface Props {
-     title: string, 
+     text: string,
      onPress: Function
   }
 
 export const NavigationButton = ( props:Props ) => {
     return (
         <View> 
-            <Button title={props.title} onPress={() => props.onPress()} />
+            <TouchableOpacity style={{backgroundColor:"orange", height:50, margin:8, borderWidth:1, borderColor:'black'}} onPress={() => props.onPress()}>
+                <Text>{props.text}</Text>
+            </TouchableOpacity>
         </View>
     )
 }
