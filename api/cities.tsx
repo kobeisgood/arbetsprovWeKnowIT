@@ -47,8 +47,6 @@ export const fetchCityPopulation = async ( cityInput:string ) => {
                 console.log(result)
                 if (result.totalResultsCount !== 1) {return "The city you have searched for does not exist"}
                 
-                console.log(result)
-                console.log(result.geonames[0].population)
                 let population = result.geonames[0].population
                 return population
             }, (error) => { return error}        

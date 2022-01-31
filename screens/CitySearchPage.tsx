@@ -8,7 +8,7 @@ import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack'
 import { NavigatorParamsList } from '../types'
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { fetchCityPopulation } from '../api/Cities';
 
@@ -29,25 +29,26 @@ export const CitySearchPage = ( props:Props ) => {
     const [hasSearchedState, setHasSearchedState] = useState(false)
     const [population, setPopulation] = useState(0)
 
-    // re-render page when search button is clicked
-    useEffect(() => {
-        console.log(cityInput)
-
-        fetchCityPopulation(cityInput).then(
+    const handleSearch = (city:string) => {
+        
+        setHasSearchedState(true)
+        fetchCityPopulation(city).then(
             (response) => {
                 setPopulation(response)
             })
-            console.log(hasSearchedState)
-            console.log('we got this pop by pressing the button: ' + population)
-    }, [hasSearchedState])
+    }
 
     return (
-        <View style={{marginTop:200}}>
-            <BackButton navigation={props.navigation}/>
-            <PageText text="SEARCH BY CITY"/>
-            <Input placeholder='Enter a city' onChangeText={(val:any) => setCityInput(val)}/>
-            <Text> city: {cityInput} </Text>
-            <SearchButton onPress={() => setHasSearchedState(true)}/>
+        <View style={{marginTop:200}} >
+            {hasSearchedState ? <View>
+                <Text> pop: {population}</Text>
+            </View> : 
+            <View><BackButton navigation={props.navigation}/>
+                <PageText text="SEARCH BY CITY"/>
+                <Input placeholder='Enter a city' onChangeText={(val:any) => setCityInput(val)}/>
+                <SearchButton onPress={() => handleSearch(cityInput)}/>
+            </View>
+            }
         </View>
     )
 }
