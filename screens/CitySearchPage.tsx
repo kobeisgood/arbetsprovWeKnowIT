@@ -37,9 +37,8 @@ export const CitySearchPage = ( props:Props ) => {
                 } else {
                     setDisplayErrorMessage(true)
                     setSuccesfulSearch(false)
-                }
-                
-        })
+                }      
+            })
 
         setDisplayErrorMessage(false)
         setSuccesfulSearch(true)

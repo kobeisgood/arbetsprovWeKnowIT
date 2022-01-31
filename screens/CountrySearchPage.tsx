@@ -14,15 +14,16 @@ import React, { useState } from 'react';
 import { fetchThreeMostPopulatedCities } from '../api/Countries';
 
 import { PageText } from '../components/PageText'
-import { NavigationButton } from '../components/NavigationButton' // will be used later after search
+import { NavigationButton } from '../components/NavigationButton'
 import { BackButton } from '../components/BackButton'
 import { SearchButton } from '../components/SearchButton'
+import { Input } from '../components/Input';
 
 interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'CountrySearch'>
 }
 
-// TODO: add functionality 
+// TODO: add functionality so pressing a city from the list shows its population 
 export const CountrySearchPage = ( props:Props ) => {
 
     const [countryInput, setCountryInput] = useState('')
@@ -30,13 +31,50 @@ export const CountrySearchPage = ( props:Props ) => {
     const [result, setResult] : [string[], Function]  = useState([])
     const [displayErrorMessage, setDisplayErrorMessage] = useState(false)
 
+    const handleSearch = (country:string) => {
+
+        fetchThreeMostPopulatedCities(country).then(
+            (response) => {
+                // if the response isn't an array, display error message 
+                if (Array.isArray(response)) {
+                    setResult(response)
+                } else {
+                    setDisplayErrorMessage(true)
+                    setSuccesfulSearch(false)
+                }
+            })
+        
+        setDisplayErrorMessage(false)
+        setSuccesfulSearch(true)
+
+
+
+    }
+
 
 
     return (
         <View style={{marginTop:200}}> 
-            <BackButton navigation={props.navigation}/>
-            <PageText text="SEARCH BY COUNTRY"></PageText>
-            <SearchButton onPress={fetchThreeMostPopulatedCities}/> 
+            {succesfulSearch ? 
+            <View> 
+                <BackButton navigation={props.navigation}/>
+                <Text> cities:</Text>
+                {result.map((city:string) => {
+                    return (
+                        <NavigationButton text={city} onPress={() => null}/>
+                    )
+                })}
+            </View>
+            :
+            <View>
+                <BackButton navigation={props.navigation}/>
+                <PageText text="SEARCH BY COUNTRY"></PageText>
+                {displayErrorMessage && <Text> The country you have searched for does not exist, try again! </Text>}
+                <Input placeholder='Enter a country' onChangeText={(val:any) => setCountryInput(val)}/>
+                <SearchButton onPress={() => handleSearch(countryInput)}/> 
+            </View>
+            }
         </View>
+
     )
 }
