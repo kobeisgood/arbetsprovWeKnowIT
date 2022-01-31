@@ -2,7 +2,6 @@
  * API for fetching information about cities 
  */
 
-
 /*
 const responseJSON = await response.json()
         console.log(responseJSON)
@@ -49,6 +48,7 @@ export const fetchCityPopulation = async ( cityInput:string ) => {
                 
                 let population = result.geonames[0].population
                 return population
+                
             }, (error) => { return error}        
         )
     )

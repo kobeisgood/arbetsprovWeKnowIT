@@ -3,8 +3,7 @@ Screen where users can input a name of a city and are
 returned the population of that city
 */
 
-
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack'
 import { NavigatorParamsList } from '../types'
 
@@ -17,37 +16,52 @@ import { BackButton } from '../components/BackButton'
 import { SearchButton } from '../components/SearchButton'
 import { Input }  from '../components/Input'
 
-
 interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'CitySearch'>
 }
 
-// TODO: fix bug where initial state of hasSearched forces a re-render and messes up the fetch
 export const CitySearchPage = ( props:Props ) => {
 
     const [cityInput, setCityInput] = useState('')
-    const [hasSearchedState, setHasSearchedState] = useState(false)
-    const [population, setPopulation] = useState(0)
+    const [succesfulSearch, setSuccesfulSearch] = useState(false)
+    const [result, setResult] = useState(0)
+    const [displayErrorMessage, setDisplayErrorMessage] = useState(false)
 
     const handleSearch = (city:string) => {
-        
-        setHasSearchedState(true)
+
         fetchCityPopulation(city).then(
             (response) => {
-                setPopulation(response)
-            })
+                // is the response isn't a number: display error message
+                if (!isNaN(response)) {
+                    setResult(response)
+                } else {
+                    setDisplayErrorMessage(true)
+                    setSuccesfulSearch(false)
+                }
+                
+        })
+
+        setDisplayErrorMessage(false)
+        setSuccesfulSearch(true)
+
     }
 
     return (
         <View style={{marginTop:200}} >
-            {hasSearchedState ? <View>
-                <Text> pop: {population}</Text>
-            </View> : 
-            <View><BackButton navigation={props.navigation}/>
+            {succesfulSearch ? 
+            <View>
+                <BackButton navigation={props.navigation}/>
+                <Text> pop of {cityInput}: {result}</Text>
+            </View> 
+                :
+            <View>
+                <BackButton navigation={props.navigation}/>
                 <PageText text="SEARCH BY CITY"/>
+                {displayErrorMessage && <Text> The city you have searched for does not exist, try again! </Text>}
                 <Input placeholder='Enter a city' onChangeText={(val:any) => setCityInput(val)}/>
                 <SearchButton onPress={() => handleSearch(cityInput)}/>
             </View>
+
             }
         </View>
     )
