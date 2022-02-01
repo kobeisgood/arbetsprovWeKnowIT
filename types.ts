@@ -8,4 +8,5 @@ export type NavigatorParamsList = {
     Home: undefined
     CitySearch: undefined
     CountrySearch: undefined
+    CityResult: undefined
 }

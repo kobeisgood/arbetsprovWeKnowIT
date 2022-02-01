@@ -15,6 +15,7 @@ import { PageText } from '../components/PageText'
 import { BackButton } from '../components/BackButton'
 import { SearchButton } from '../components/SearchButton'
 import { Input }  from '../components/Input'
+import { CityResultPage } from '../components/CityResultPage';
 
 interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'CitySearch'>
@@ -53,8 +54,11 @@ export const CitySearchPage = ( props:Props ) => {
         <View style={{marginTop:200}} >
             {succesfulSearch ? 
             <View>
-                <BackButton navigation={props.navigation}/>
-                <Text> pop of {cityInput}: {result}</Text>
+                <CityResultPage 
+                    navigation={props.navigation} 
+                    city={cityInput} 
+                    result={result}
+                />
             </View> 
                 :
             <View>
