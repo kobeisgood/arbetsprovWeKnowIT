@@ -20,6 +20,7 @@ import { useEffect, useState } from 'react';
 
 export const CityResultPage = (props:Props) => {
 
+    // parameters that are sent to the page
     const {city, result} = props.route.params 
 
     const [isLoading, setIsLoading] = useState(true)

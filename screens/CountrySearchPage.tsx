@@ -5,21 +5,20 @@ returned the top 3 most populated cities in that country
 Users can also press the cities to get navigated to a corresponding city search to get a population
 */
 
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack'
 import { NavigatorParamsList } from '../types'
 
 import React, { useState } from 'react';
 
 import { fetchThreeMostPopulatedCities } from '../api/Countries';
+import { fetchCityPopulation } from '../api/Cities';
 
 import { PageText } from '../components/PageText'
 import { NavigationButton } from '../components/NavigationButton'
 import { BackButton } from '../components/BackButton'
 import { SearchButton } from '../components/SearchButton'
 import { Input } from '../components/Input';
-import { CityResultPage } from '../components/CityResultPage';
-import { fetchCityPopulation } from '../api/Cities';
 
 interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'CountrySearch'>
@@ -32,6 +31,7 @@ export const CountrySearchPage = ( props:Props ) => {
     const [successfulSearch, setSuccesfulSearch] = useState(false)
     const [result, setResult] : [string[], Function]  = useState([])
     const [displayErrorMessage, setDisplayErrorMessage] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
 
     /**
      * Handles functionality when a user searches for a country 
@@ -71,6 +71,7 @@ export const CountrySearchPage = ( props:Props ) => {
             })
     }
 
+    // TODO: add loading after a user searches for a country 
     return (
         <View style={{marginTop:200}}> 
             {successfulSearch ? 
