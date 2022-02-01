@@ -31,6 +31,11 @@ export const CountrySearchPage = ( props:Props ) => {
     const [result, setResult] : [string[], Function]  = useState([])
     const [displayErrorMessage, setDisplayErrorMessage] = useState(false)
 
+    /**
+     * Handles functionality when a user searches for a country 
+     * 
+     * @param country The country that was inputted 
+     */
     const handleSearch = (country:string) => {
 
         fetchThreeMostPopulatedCities(country).then(
@@ -46,9 +51,11 @@ export const CountrySearchPage = ( props:Props ) => {
         
         setDisplayErrorMessage(false)
         setSuccesfulSearch(true)
-
-
-
+    }
+    
+    const handleCityPress = () => {
+        props.navigation.navigate('CitySearch')
+        // global city search function 
     }
 
 
@@ -58,10 +65,13 @@ export const CountrySearchPage = ( props:Props ) => {
             {succesfulSearch ? 
             <View> 
                 <BackButton navigation={props.navigation}/>
-                <Text> cities:</Text>
-                {result.map((city:string) => {
+                {result.map((city:string, index:number) => {
                     return (
-                        <NavigationButton text={city} onPress={() => null}/>
+                        <NavigationButton 
+                            text={city} 
+                            onPress={() => handleCityPress()} 
+                            key={index}
+                        />
                     )
                 })}
             </View>
