@@ -5,12 +5,13 @@
  * (WILL FINISH STYLING LATER)
  */
 
- import { StyleSheet, Text, View } from 'react-native';
+ import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
  import { StackNavigationProp } from '@react-navigation/stack'
  import { NavigatorParamsList } from '../types'
   
  import { BackButton } from './BackButton'
 import { PageText } from './PageText';
+import { useEffect, useState } from 'react';
 
  interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'CityResult'>,
@@ -21,10 +22,21 @@ export const CityResultPage = (props:Props) => {
 
     const {city, result} = props.route.params 
 
+    const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+        setIsLoading(false)
+    }, [result])
+
     return (
         <View>
-            <BackButton navigation={props.navigation}/>
-            <PageText text={city}/>
-            <Text> pop: {result}</Text>
+            {isLoading ? <ActivityIndicator size="large"/>
+            :
+            <View> 
+                <BackButton navigation={props.navigation}/>
+                <PageText text={city}/>
+                <Text> pop: {result}</Text> 
+            </View>
+            }
         </View>)
 }
