@@ -15,6 +15,7 @@ import { PageText } from '../components/PageText'
 import { BackButton } from '../components/BackButton'
 import { SearchButton } from '../components/SearchButton'
 import { Input }  from '../components/Input'
+import { CityResultPage } from '../components/CityResultPage';
 
 interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'CitySearch'>
@@ -23,37 +24,33 @@ interface Props{
 export const CitySearchPage = ( props:Props ) => {
 
     const [cityInput, setCityInput] = useState('')
-    const [succesfulSearch, setSuccesfulSearch] = useState(false)
-    const [result, setResult] = useState(0)
     const [displayErrorMessage, setDisplayErrorMessage] = useState(false)
 
+    /**
+     * Navigates the user to the city results page with correct parameters
+     * 
+     * @param city The city that was inputted
+     */
     const handleSearch = (city:string) => {
 
-        fetchCityPopulation(city).then(
-            (response) => {
-                // is the response isn't a number: display error message
-                if (!isNaN(response)) {
-                    setResult(response)
-                } else {
-                    setDisplayErrorMessage(true)
-                    setSuccesfulSearch(false)
-                }
-                
-        })
+         fetchCityPopulation(city).then(
+             (response) => {
+                 // if the response isn't a number: display error message
+                 if (!isNaN(response)) {
+                     props.navigation.navigate('CityResult', {
+                        city:city, 
+                        result:response, 
+                    })
+                 } else {
+                     setDisplayErrorMessage(true)
+                 }      
+             })
 
-        setDisplayErrorMessage(false)
-        setSuccesfulSearch(true)
-
+         setDisplayErrorMessage(false)
     }
 
     return (
         <View style={{marginTop:200}} >
-            {succesfulSearch ? 
-            <View>
-                <BackButton navigation={props.navigation}/>
-                <Text> pop of {cityInput}: {result}</Text>
-            </View> 
-                :
             <View>
                 <BackButton navigation={props.navigation}/>
                 <PageText text="SEARCH BY CITY"/>
@@ -61,8 +58,6 @@ export const CitySearchPage = ( props:Props ) => {
                 <Input placeholder='Enter a city' onChangeText={(val:any) => setCityInput(val)}/>
                 <SearchButton onPress={() => handleSearch(cityInput)}/>
             </View>
-
-            }
         </View>
     )
 }
