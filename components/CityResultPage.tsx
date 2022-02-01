@@ -1,20 +1,15 @@
 /**
  * Screen that shows the result from a succesful city search
+ * 
+ * (WORK IN PROGRESS)
+ * (WILL FINISH STYLING LATER)
  */
-
 
  import { StyleSheet, Text, View } from 'react-native';
  import { StackNavigationProp } from '@react-navigation/stack'
  import { NavigatorParamsList } from '../types'
- 
- import React, { useState } from 'react';
- 
- import { fetchCityPopulation } from '../api/Cities';
- 
- import { PageText } from './PageText'
+  
  import { BackButton } from './BackButton'
- import { SearchButton } from './SearchButton'
- import { Input }  from './Input'
 
  interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'CitySearch'>,
