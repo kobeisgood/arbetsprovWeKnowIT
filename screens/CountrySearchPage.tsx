@@ -18,6 +18,8 @@ import { NavigationButton } from '../components/NavigationButton'
 import { BackButton } from '../components/BackButton'
 import { SearchButton } from '../components/SearchButton'
 import { Input } from '../components/Input';
+import { CityResultPage } from '../components/CityResultPage';
+import { fetchCityPopulation } from '../api/Cities';
 
 interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'CountrySearch'>
@@ -27,7 +29,7 @@ interface Props{
 export const CountrySearchPage = ( props:Props ) => {
 
     const [countryInput, setCountryInput] = useState('')
-    const [succesfulSearch, setSuccesfulSearch] = useState(false)
+    const [successfulSearch, setSuccesfulSearch] = useState(false)
     const [result, setResult] : [string[], Function]  = useState([])
     const [displayErrorMessage, setDisplayErrorMessage] = useState(false)
 
@@ -53,23 +55,32 @@ export const CountrySearchPage = ( props:Props ) => {
         setSuccesfulSearch(true)
     }
     
-    const handleCityPress = () => {
-        props.navigation.navigate('CitySearch')
-        // global city search function 
+    /**
+     * Navigates the user to the city results page with correct parameters
+     * 
+     * @param city The city that was inputted 
+     *  
+     * */
+    const handleCityPress = (city:string) => {
+        fetchCityPopulation(city).then(
+            (response) => {
+                props.navigation.navigate('CityResult', {
+                    city:city, 
+                    result:response, 
+                })
+            })
     }
-
-
 
     return (
         <View style={{marginTop:200}}> 
-            {succesfulSearch ? 
+            {successfulSearch ? 
             <View> 
                 <BackButton navigation={props.navigation}/>
                 {result.map((city:string, index:number) => {
                     return (
                         <NavigationButton 
                             text={city} 
-                            onPress={() => handleCityPress()} 
+                            onPress={() => handleCityPress(city)} 
                             key={index}
                         />
                     )

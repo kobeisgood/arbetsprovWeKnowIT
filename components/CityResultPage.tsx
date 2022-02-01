@@ -12,15 +12,17 @@
  import { BackButton } from './BackButton'
 
  interface Props{
-    navigation: StackNavigationProp<NavigatorParamsList, 'CitySearch'>,
-    city: string,
-    result: number
+    navigation: StackNavigationProp<NavigatorParamsList, 'CityResult'>,
+    route: any,
 }
 
 export const CityResultPage = (props:Props) => {
+
+    const {city, result} = props.route.params 
+
     return (
         <View>
             <BackButton navigation={props.navigation}/>
-            <Text> pop of {props.city}: {props.result}</Text>
+            <Text> pop of {city}: {result}</Text>
         </View>)
 }

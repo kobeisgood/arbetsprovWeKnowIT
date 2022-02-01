@@ -24,12 +24,10 @@ interface Props{
 export const CitySearchPage = ( props:Props ) => {
 
     const [cityInput, setCityInput] = useState('')
-    const [succesfulSearch, setSuccesfulSearch] = useState(false)
-    const [result, setResult] = useState(0)
     const [displayErrorMessage, setDisplayErrorMessage] = useState(false)
 
     /**
-     * Handles functionality when a user searches for a country
+     * Navigates the user to the city results page with correct parameters
      * 
      * @param city The city that was inputted
      */
@@ -39,28 +37,20 @@ export const CitySearchPage = ( props:Props ) => {
              (response) => {
                  // if the response isn't a number: display error message
                  if (!isNaN(response)) {
-                     setResult(response)
+                     props.navigation.navigate('CityResult', {
+                        city:city, 
+                        result:response, 
+                    })
                  } else {
                      setDisplayErrorMessage(true)
-                     setSuccesfulSearch(false)
                  }      
              })
 
          setDisplayErrorMessage(false)
-         setSuccesfulSearch(true)
     }
 
     return (
         <View style={{marginTop:200}} >
-            {succesfulSearch ? 
-            <View>
-                <CityResultPage 
-                    navigation={props.navigation} 
-                    city={cityInput} 
-                    result={result}
-                />
-            </View> 
-                :
             <View>
                 <BackButton navigation={props.navigation}/>
                 <PageText text="SEARCH BY CITY"/>
@@ -68,8 +58,6 @@ export const CitySearchPage = ( props:Props ) => {
                 <Input placeholder='Enter a city' onChangeText={(val:any) => setCityInput(val)}/>
                 <SearchButton onPress={() => handleSearch(cityInput)}/>
             </View>
-
-            }
         </View>
     )
 }
