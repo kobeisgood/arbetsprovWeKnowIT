@@ -76,6 +76,7 @@ export const CountrySearchPage = ( props:Props ) => {
             {successfulSearch ? 
             <View> 
                 <BackButton navigation={props.navigation}/>
+                <PageText text={countryInput}/>
                 {result.map((city:string, index:number) => {
                     return (
                         <NavigationButton 

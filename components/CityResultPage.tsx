@@ -10,6 +10,7 @@
  import { NavigatorParamsList } from '../types'
   
  import { BackButton } from './BackButton'
+import { PageText } from './PageText';
 
  interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'CityResult'>,
@@ -23,6 +24,7 @@ export const CityResultPage = (props:Props) => {
     return (
         <View>
             <BackButton navigation={props.navigation}/>
-            <Text> pop of {city}: {result}</Text>
+            <PageText text={city}/>
+            <Text> pop: {result}</Text>
         </View>)
 }
