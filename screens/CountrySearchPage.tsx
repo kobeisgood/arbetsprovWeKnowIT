@@ -12,10 +12,8 @@ import { NavigatorParamsList } from '../types'
 import React, { useState } from 'react';
 
 import { fetchThreeMostPopulatedCities } from '../api/Countries';
-import { fetchCityPopulation } from '../api/Cities';
 
 import { PageText } from '../components/PageText'
-import { NavigationButton } from '../components/NavigationButton'
 import { BackButton } from '../components/BackButton'
 import { SearchButton } from '../components/SearchButton'
 import { Input } from '../components/Input';
@@ -28,8 +26,6 @@ interface Props{
 export const CountrySearchPage = ( props:Props ) => {
 
     const [countryInput, setCountryInput] = useState('')
-    const [successfulSearch, setSuccesfulSearch] = useState(false)
-    const [result, setResult] : [string[], Function]  = useState([])
     const [displayErrorMessage, setDisplayErrorMessage] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
 
@@ -44,51 +40,22 @@ export const CountrySearchPage = ( props:Props ) => {
             (response) => {
                 // if the response isn't an array, display error message 
                 if (Array.isArray(response)) {
-                    setResult(response)
+                    props.navigation.navigate('Result', {
+                        input:country,
+                        result:response
+                    })
                 } else {
                     setDisplayErrorMessage(true)
-                    setSuccesfulSearch(false)
                 }
             })
-        
         setDisplayErrorMessage(false)
-        setSuccesfulSearch(true)
     }
     
-    /**
-     * Navigates the user to the city results page with correct parameters
-     * 
-     * @param city The city that was inputted 
-     *  
-     * */
-    const handleCityPress = (city:string) => {
-        fetchCityPopulation(city).then(
-            (response) => {
-                props.navigation.navigate('CityResult', {
-                    city:city, 
-                    result:response, 
-                })
-            })
-    }
+  
 
     // TODO: add loading after a user searches for a country 
     return (
         <View style={{marginTop:200}}> 
-            {successfulSearch ? 
-            <View> 
-                <BackButton navigation={props.navigation}/>
-                <PageText text={countryInput}/>
-                {result.map((city:string, index:number) => {
-                    return (
-                        <NavigationButton 
-                            text={city} 
-                            onPress={() => handleCityPress(city)} 
-                            key={index}
-                        />
-                    )
-                })}
-            </View>
-            :
             <View>
                 <BackButton navigation={props.navigation}/>
                 <PageText text="SEARCH BY COUNTRY"></PageText>
@@ -96,7 +63,6 @@ export const CountrySearchPage = ( props:Props ) => {
                 <Input placeholder='Enter a country' onChangeText={(val:any) => setCountryInput(val)}/>
                 <SearchButton onPress={() => handleSearch(countryInput)}/> 
             </View>
-            }
         </View>
 
     )

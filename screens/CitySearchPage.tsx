@@ -15,7 +15,6 @@ import { PageText } from '../components/PageText'
 import { BackButton } from '../components/BackButton'
 import { SearchButton } from '../components/SearchButton'
 import { Input }  from '../components/Input'
-import { CityResultPage } from './CityResultPage';
 
 interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'CitySearch'>
@@ -37,9 +36,9 @@ export const CitySearchPage = ( props:Props ) => {
              (response) => {
                  // if the response isn't a number: display error message
                  if (!isNaN(response)) {
-                     props.navigation.navigate('CityResult', 
+                     props.navigation.navigate('Result', 
                     {
-                        city:city, 
+                        input:city, 
                         result:response, 
                     })
                  } else {
