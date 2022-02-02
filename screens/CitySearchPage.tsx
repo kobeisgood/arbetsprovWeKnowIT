@@ -52,7 +52,7 @@ export const CitySearchPage = ( props:Props ) => {
 
     return (
         <View style={{marginTop:200}} >
-            {isLoading ? <ActivityIndicator size='large'/> :
+            {isLoading ? <ActivityIndicator size='large' color='0000ff'/> :
             <View>
                 <BackButton navigation={props.navigation}/>
                 <PageText text="SEARCH BY CITY"/>

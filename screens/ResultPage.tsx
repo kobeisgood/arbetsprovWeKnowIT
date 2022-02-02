@@ -50,7 +50,7 @@ export const ResultPage = (props:Props) => {
 
     return (
         <View>
-            {isLoading ? <ActivityIndicator size="large"/>
+            {isLoading ? <ActivityIndicator size="large" color='0000ff'/>
             :
             <View> 
                 <BackButton navigation={props.navigation}/>
