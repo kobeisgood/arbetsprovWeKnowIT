@@ -27,6 +27,15 @@ export const CitySearchPage = ( props:Props ) => {
     const [isLoading, setIsLoading] = useState(false)
 
     /**
+     * Method that resets the states of the page to their initial values 
+     */
+     const resetStates = () => {
+        setCityInput('')
+        setDisplayErrorMessage(false)
+        setIsLoading(false)
+    }
+
+    /**
      * Navigates the user to the city results page with correct parameters
      * or displays an error message if a faulty city is searched
      * 
@@ -39,6 +48,7 @@ export const CitySearchPage = ( props:Props ) => {
             (response) => {
                 // if the response isn't a number: display error message
                 if (!isNaN(response)) {
+                    resetStates()    
                     props.navigation.navigate('Result', {
                             input:city, 
                             result:response, 
@@ -52,7 +62,7 @@ export const CitySearchPage = ( props:Props ) => {
 
     return (
         <View style={{marginTop:200}} >
-            {isLoading ? <ActivityIndicator size='large'/> :
+            {isLoading ? <ActivityIndicator size='large' color='0000ff'/> :
             <View>
                 <BackButton navigation={props.navigation}/>
                 <PageText text="SEARCH BY CITY"/>

@@ -29,6 +29,15 @@ export const CountrySearchPage = ( props:Props ) => {
     const [isLoading, setIsLoading] = useState(false)
 
     /**
+     * Method that resets the states of the page to their initial values 
+     */
+    const resetStates = () => {
+        setCountryInput('')
+        setDisplayErrorMessage(false)
+        setIsLoading(false)
+    }
+
+    /**
      * Navigates the user to the results page or 
      * displays error message if faulty country is searched
      * 
@@ -41,6 +50,7 @@ export const CountrySearchPage = ( props:Props ) => {
             (response) => {
                 // if the response isn't an array, display error message 
                 if (Array.isArray(response)) {
+                    resetStates()
                     props.navigation.navigate('Result', {
                         input:country,
                         result:response
@@ -54,7 +64,7 @@ export const CountrySearchPage = ( props:Props ) => {
 
     return (
         <View style={{marginTop:200}}>
-            {isLoading ? <ActivityIndicator size='large'/> :
+            {isLoading ? <ActivityIndicator size='large' color='0000ff'/> :
             <View>
                 <BackButton navigation={props.navigation}/>
                 <PageText text="SEARCH BY COUNTRY"></PageText>
