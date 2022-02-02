@@ -29,7 +29,8 @@ export const CountrySearchPage = ( props:Props ) => {
     const [isLoading, setIsLoading] = useState(false)
 
     /**
-     * Handles functionality when a user searches for a country 
+     * Navigates the user to the results page or 
+     * displays error message if faulty country is searched
      * 
      * @param country The country that was inputted 
      */
@@ -45,8 +46,8 @@ export const CountrySearchPage = ( props:Props ) => {
                         result:response
                     })
                 } else {
-                    setDisplayErrorMessage(true)
                     setIsLoading(false)
+                    setDisplayErrorMessage(true)    
                 }
         })
     }
