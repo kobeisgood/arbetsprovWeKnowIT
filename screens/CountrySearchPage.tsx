@@ -22,12 +22,11 @@ interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'CountrySearch'>
 }
 
-// TODO: add functionality so pressing a city from the list shows its population 
 export const CountrySearchPage = ( props:Props ) => {
 
     const [countryInput, setCountryInput] = useState('')
     const [displayErrorMessage, setDisplayErrorMessage] = useState(false)
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
 
     /**
      * Handles functionality when a user searches for a country 
@@ -35,6 +34,7 @@ export const CountrySearchPage = ( props:Props ) => {
      * @param country The country that was inputted 
      */
     const handleSearch = (country:string) => {
+        setIsLoading(true)
 
         fetchThreeMostPopulatedCities(country).then(
             (response) => {
@@ -46,23 +46,24 @@ export const CountrySearchPage = ( props:Props ) => {
                     })
                 } else {
                     setDisplayErrorMessage(true)
+                    setIsLoading(false)
                 }
-            })
-        setDisplayErrorMessage(false)
+        })
     }
-    
-  
 
-    // TODO: add loading after a user searches for a country 
     return (
-        <View style={{marginTop:200}}> 
+        <View style={{marginTop:200}}>
+            {isLoading ? <ActivityIndicator size='large'/> :
             <View>
                 <BackButton navigation={props.navigation}/>
                 <PageText text="SEARCH BY COUNTRY"></PageText>
-                {displayErrorMessage && <Text> The country you have searched for does not exist, try again! </Text>}
+                {displayErrorMessage && !isLoading && 
+                <Text> The country you have searched for does not exist, try again! </Text>
+                }
                 <Input placeholder='Enter a country' onChangeText={(val:any) => setCountryInput(val)}/>
                 <SearchButton onPress={() => handleSearch(countryInput)}/> 
             </View>
+            }
         </View>
 
     )
