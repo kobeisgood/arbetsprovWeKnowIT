@@ -45,6 +45,8 @@ export const CountrySearchPage = ( props:Props ) => {
                         input:country,
                         result:response
                     })
+                    setIsLoading(false)
+
                 } else {
                     setIsLoading(false)
                     setDisplayErrorMessage(true)    

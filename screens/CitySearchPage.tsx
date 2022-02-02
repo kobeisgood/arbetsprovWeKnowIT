@@ -39,6 +39,7 @@ export const CitySearchPage = ( props:Props ) => {
             (response) => {
                 // if the response isn't a number: display error message
                 if (!isNaN(response)) {
+                    setIsLoading(false)
                     props.navigation.navigate('Result', {
                             input:city, 
                             result:response, 
