@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { HomePage } from './screens/HomePage'
 import { CitySearchPage } from './screens/CitySearchPage'
 import { CountrySearchPage } from './screens/CountrySearchPage';
-import { CityResultPage } from './components/CityResultPage';
+import { CityResultPage } from './screens/CityResultPage';
 
 const Stack = createNativeStackNavigator()
 

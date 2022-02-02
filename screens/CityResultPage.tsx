@@ -9,8 +9,8 @@
  import { StackNavigationProp } from '@react-navigation/stack'
  import { NavigatorParamsList } from '../types'
   
- import { BackButton } from './BackButton'
-import { PageText } from './PageText';
+ import { BackButton } from '../components/BackButton'
+import { PageText } from '../components/PageText';
 import { useEffect, useState } from 'react';
 
  interface Props{

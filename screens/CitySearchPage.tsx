@@ -15,7 +15,7 @@ import { PageText } from '../components/PageText'
 import { BackButton } from '../components/BackButton'
 import { SearchButton } from '../components/SearchButton'
 import { Input }  from '../components/Input'
-import { CityResultPage } from '../components/CityResultPage';
+import { CityResultPage } from './CityResultPage';
 
 interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'CitySearch'>
