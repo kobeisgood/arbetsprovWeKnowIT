@@ -5,13 +5,23 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    mainContainer: {
-        display: 'flex',
+    appContainer: {
         flex: 1,
-        flexDirection: 'column', 
-        backgroundColor: "#eaeaea"        
+        backgroundColor: "#eaeaea", // maybe change to white 
+        justifyContent: 'center'       
+    }, 
+    contentContainer: {
+        alignItems: 'center', 
+        height: 200,
+        marginTop: 20,
+        // temporary stuff
+        backgroundColor: 'white'
+    },
+    topContainer: {
+        marginTop: 50,
+        // temporary stuff
+        backgroundColor: 'purple'
+
     }
-    // add top containers
-    // add add content container 
     // add text styling 
 }) 

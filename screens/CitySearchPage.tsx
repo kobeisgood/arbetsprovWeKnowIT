@@ -15,6 +15,7 @@ import { PageText } from '../components/PageText'
 import { BackButton } from '../components/BackButton'
 import { SearchButton } from '../components/SearchButton'
 import { Input }  from '../components/Input'
+import { styles } from '../styles/styles';
 
 interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'CitySearch'>
@@ -61,9 +62,9 @@ export const CitySearchPage = ( props:Props ) => {
     }
 
     return (
-        <View style={{marginTop:200}} >
+        <View style={styles.appContainer} >
             {isLoading ? <ActivityIndicator size='large' color='0000ff'/> :
-            <View>
+            <View style={styles.contentContainer}>
                 <BackButton navigation={props.navigation}/>
                 <PageText text="SEARCH BY CITY"/>
                 {displayErrorMessage && !isLoading && 

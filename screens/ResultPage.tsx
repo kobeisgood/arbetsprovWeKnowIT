@@ -9,11 +9,12 @@
  import { StackNavigationProp } from '@react-navigation/stack'
  import { NavigatorParamsList } from '../types'
   
- import { BackButton } from '../components/BackButton'
+import { BackButton } from '../components/BackButton'
 import { PageText } from '../components/PageText';
 import { useEffect, useState } from 'react';
 import { NavigationButton } from '../components/NavigationButton';
 import { fetchCityPopulation } from '../api/Cities';
+import { styles } from '../styles/styles';
 
  interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'Result'>,
@@ -48,15 +49,15 @@ export const ResultPage = (props:Props) => {
             })
     }
 
+    // todo fix bug where the results are *in* the topcontainer
     return (
-        <View>
+        <View style={styles.appContainer}>
             {isLoading ? <ActivityIndicator size="large" color='0000ff'/>
             :
-            <View> 
+            <View style={styles.topContainer}> 
                 <BackButton navigation={props.navigation}/>
-
                 {Array.isArray(result) ? 
-                <> 
+                <View style={styles.contentContainer}> 
                     <PageText text={input}/> 
                         {result.map((city:string, index:number) => {
                             return (
@@ -67,14 +68,13 @@ export const ResultPage = (props:Props) => {
                                 />
                             )
                         })}
-                </>
+                </View>
                     : 
-                <> 
+                <View style={styles.contentContainer}> 
                     <PageText text={input}/>
                     <Text> pop: {result}</Text> 
-                </>
+                </View>
                 }
-                
             </View>
             }
         </View>
