@@ -14,14 +14,14 @@ export const styles = StyleSheet.create({
         alignItems: 'center', 
         height: 300,
         marginTop: 20,
+        justifyContent:"center",
         // temporary stuff
-        backgroundColor: "#eaeaea",
-        justifyContent:"center"
+        backgroundColor: "#eaeaea"
     },
     topContainer: {
-        marginTop: 50,
-        // temporary stuff
-        backgroundColor: 'purple'
+        marginTop: 60,
+        alignSelf: 'stretch',
+        flexDirection: 'row',
 
     }
     // add text styling 

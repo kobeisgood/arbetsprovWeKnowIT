@@ -65,7 +65,7 @@ export const CitySearchPage = ( props:Props ) => {
         <View style={styles.appContainer} >
             {isLoading ? <ActivityIndicator size='large' color='0000ff'/> :
             <>
-                <View>
+                <View style={styles.topContainer}>
                     <BackButton navigation={props.navigation}/>
                 </View>
                 <View>

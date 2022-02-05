@@ -23,7 +23,7 @@ export const PageText = ( props:Props ) => {
 const styles = StyleSheet.create({
     text: {
         fontSize: 24, 
-        marginTop:200,
+        marginTop:120,
         fontWeight: 'bold'
     }
 })
