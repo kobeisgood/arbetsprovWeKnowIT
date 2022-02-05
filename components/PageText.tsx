@@ -15,7 +15,15 @@ interface Props {
 export const PageText = ( props:Props ) => {
     return(
         <View> 
-            <Text style={{ fontSize: 24, marginTop:200}}> {props.text} </Text>
+            <Text style={styles.text}> {props.text} </Text>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    text: {
+        fontSize: 24, 
+        marginTop:200,
+        fontWeight: 'bold'
+    }
+})
