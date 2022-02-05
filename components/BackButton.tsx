@@ -23,6 +23,8 @@ export const BackButton = ( props:Props ) => {
     )
 }
 
+const backIcon = <FontAwesome5 name={'long-arrow-alt-left'} solid size={40}/>
+
 const styles = StyleSheet.create({
     button: {
         flexDirection: 'row',
@@ -41,4 +43,3 @@ const styles = StyleSheet.create({
     }
 })
 
-const backIcon = <FontAwesome5 name={'long-arrow-alt-left'} solid size={40}/>
