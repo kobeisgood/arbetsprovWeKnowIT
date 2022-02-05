@@ -64,15 +64,21 @@ export const CitySearchPage = ( props:Props ) => {
     return (
         <View style={styles.appContainer} >
             {isLoading ? <ActivityIndicator size='large' color='0000ff'/> :
-            <View style={styles.contentContainer}>
-                <BackButton navigation={props.navigation}/>
-                <PageText text="SEARCH BY CITY"/>
-                {displayErrorMessage && !isLoading && 
-                <Text> The city you have searched for does not exist, try again! </Text>
-                }
-                <Input placeholder='Enter a city' onChangeText={(val:any) => setCityInput(val)}/>
-                <SearchButton onPress={() => handleSearch(cityInput)}/>
-            </View>
+            <>
+                <View>
+                    <BackButton navigation={props.navigation}/>
+                </View>
+                <View>
+                    <PageText text="SEARCH BY CITY"/>
+                </View>
+                <View style={styles.contentContainer}>
+                    {displayErrorMessage && !isLoading && 
+                    <Text> The city you have searched for does not exist, try again! </Text>
+                    }
+                    <Input placeholder='Enter a city' onChangeText={(val:any) => setCityInput(val)}/>
+                    <SearchButton onPress={() => handleSearch(cityInput)}/>
+                </View>
+            </>
             }
         </View>
     )

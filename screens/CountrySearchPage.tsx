@@ -70,8 +70,10 @@ export const CountrySearchPage = ( props:Props ) => {
             <View style={styles.topContainer}> 
                 <BackButton navigation={props.navigation}/>
             </View>
-            <View style={styles.contentContainer}>
+            <View>
                 <PageText text="SEARCH BY COUNTRY"></PageText>
+            </View>
+            <View style={styles.contentContainer}>
                 {displayErrorMessage && !isLoading && 
                 <Text> The country you have searched for does not exist, try again! </Text>
                 }

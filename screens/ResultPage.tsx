@@ -59,9 +59,12 @@ export const ResultPage = (props:Props) => {
                 <BackButton navigation={props.navigation}/>
             </View>
 
+            <View>             
+                <PageText text={input}/> 
+            </View>
+
                 {Array.isArray(result) ? 
                 <View style={styles.contentContainer}> 
-                    <PageText text={input}/> 
                         {result.map((city:string, index:number) => {
                             return (
                                 <NavigationButton 
