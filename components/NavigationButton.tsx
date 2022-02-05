@@ -18,9 +18,28 @@ import { StyleSheet, View, TouchableOpacity, Text} from 'react-native';
 export const NavigationButton = ( props:Props ) => {
     return (
             <TouchableOpacity 
-            style={{backgroundColor:"orange", height:50, margin:8, borderWidth:1, borderColor:'black'}} 
+            style={styles.button } 
             onPress={() => props.onPress()}>
-                <Text>{props.text}</Text>
+                <Text style={styles.buttonText}>{props.text}</Text>
             </TouchableOpacity>
     )
 }
+
+const styles = StyleSheet.create({
+    button: { 
+        borderWidth:0.5, 
+        borderColor:'black',
+        alignItems:"center",
+        justifyContent:"center",
+        backgroundColor:'white',
+        width:300,
+        height:50,
+        margin: 10
+    },
+    buttonText: {
+        fontWeight: 'bold', 
+        fontSize: 15,
+        color:'black'
+    }
+
+})

@@ -7,15 +7,15 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     appContainer: {
         flex: 1,
-        backgroundColor: "#eaeaea", // maybe change to white 
+        backgroundColor: 'white' , // maybe change to white 
         justifyContent: 'center'       
     }, 
     contentContainer: {
         alignItems: 'center', 
-        height: 200,
+        height: 300,
         marginTop: 20,
         // temporary stuff
-        backgroundColor: 'white'
+        backgroundColor: "#eaeaea"
     },
     topContainer: {
         marginTop: 50,

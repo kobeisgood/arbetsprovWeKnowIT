@@ -36,7 +36,7 @@ export const ResultPage = (props:Props) => {
      * Re-renders the results page when a user presses a city from 
      * the list after having searched a country
      * 
-     * @param city The city that was presses 
+     * @param city The city that was pressed
      *  
      * */
        const handleCityPress = (city:string) => {
@@ -52,10 +52,13 @@ export const ResultPage = (props:Props) => {
     // todo fix bug where the results are *in* the topcontainer
     return (
         <View style={styles.appContainer}>
-            {isLoading ? <ActivityIndicator size="large" color='0000ff'/>
-            :
+            {isLoading ? <ActivityIndicator size="large" color='0000ff'/> :
+            <>
+
             <View style={styles.topContainer}> 
                 <BackButton navigation={props.navigation}/>
+            </View>
+
                 {Array.isArray(result) ? 
                 <View style={styles.contentContainer}> 
                     <PageText text={input}/> 
@@ -75,7 +78,7 @@ export const ResultPage = (props:Props) => {
                     <Text> pop: {result}</Text> 
                 </View>
                 }
-            </View>
+            </>
             }
         </View>
     )
