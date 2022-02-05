@@ -77,8 +77,7 @@ export const ResultPage = (props:Props) => {
                 </View>
                     : 
                 <View style={styles.contentContainer}> 
-                    <PageText text={input}/>
-                    <Text> pop: {result}</Text> 
+                    <Text>{result}</Text> 
                 </View>
                 }
             </>

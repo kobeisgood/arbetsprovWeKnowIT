@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
     }, 
     contentContainer: {
         alignItems: 'center', 
+        alignSelf: 'stretch',
         height: 300,
         marginTop: 20,
         justifyContent:"center",
