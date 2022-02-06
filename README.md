@@ -1,4 +1,4 @@
-# Work test for WeKnowIt
+# Work test for We Know IT
 This task is based on a fictitious scenario where We Know IT will develop an app for a customer. The user should be able to search for a population of a certain city, as well as being able to search for a country and obtain the population of the largest cities for that country.
 This project was built using the [React Native](https://reactnative.dev/) framework with the [TypeScript](https://www.typescriptlang.org/) language, along with the developer tool [Expo](https://expo.dev/). 
 
@@ -17,9 +17,9 @@ This project was built using the [React Native](https://reactnative.dev/) framew
 3. Write `npm install`.
 4. Write `expo start`.
 ### Alternatives for running the app 
-a. To run the app in your web browser, press `w` in your terminal.
-b. To run the app on an Andorid or iOS emulator on your computer, you need either Android Studio or Xcode respectively. Configure an emulator and open it, then press `a` in your terminal.
-b. For a more realistic experience, download the Expo Go app and through the app scan the QR code shown in the terminal to open the app. 
+a. To run the app in your web browser, press `w` in your terminal. \
+b. To run the app on an Andorid or iOS emulator on your computer, you need either Android Studio or Xcode respectively. Configure an emulator and open it, then press `a` in your terminal. \
+b. For a more realistic experience, download the Expo Go app and through the app scan the QR code shown in the terminal to open the app. \
 
 ## Structure 
 * Components: ` /arbetsprovWeKnowIT/components`
