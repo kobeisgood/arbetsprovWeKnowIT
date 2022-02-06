@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     },
     populationContainer: {
         height: 100,
-        alignSelf: 'stretch', 
+        width: 350, 
         borderColor: 'black', 
         borderWidth: 1, 
         alignItems: 'center',

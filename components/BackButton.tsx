@@ -30,14 +30,15 @@ const styles = StyleSheet.create({
         width: 120,
         justifyContent: 'space-around',
         alignItems: 'center',
-        paddingLeft: 5
+        marginLeft: 5
 
     }, 
     text: {
         alignSelf: 'center',
         fontSize: 20,
         fontWeight: 'bold',
-        marginBottom: 3
+        marginBottom: 3,
+        marginLeft: 10
     }
 })
 
