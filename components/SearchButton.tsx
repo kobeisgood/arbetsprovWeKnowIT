@@ -3,7 +3,7 @@
  * 
  */
 
- import { StyleSheet, View, Text, Button, TouchableOpacity, Image } from 'react-native';
+ import { StyleSheet,TouchableOpacity } from 'react-native';
  import FontAwesome5 from "react-native-vector-icons/FontAwesome5"
 
  interface Props{
