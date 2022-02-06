@@ -1,13 +1,11 @@
 /** 
  * Simple button to go back to home page 
  * 
- * (WORK IN PROGRESS)
- * (WILL FINISH STYLING LATER eg icon)
  */
 
 import { StackNavigationProp } from '@react-navigation/stack'
 import { NavigatorParamsList } from '../types'
-import { StyleSheet, View, Text, Button, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5"
 
 interface Props{
@@ -16,10 +14,10 @@ interface Props{
 
 export const BackButton = ( props:Props ) => {
     return (
-            <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate('Home')}>
-                {backIcon}
-                <Text style={styles.text}>CityPop</Text>
-            </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate('Home')}>
+            {backIcon}
+            <Text style={styles.text}>CityPop</Text>
+        </TouchableOpacity>
     )
 }
 

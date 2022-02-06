@@ -1,14 +1,10 @@
 /** 
  * Component for search button in city and country search 
  * 
- * 
- * (WORK IN PROGRESS)
- * (WILL FINISH STYLING LATER eg icon)
  */
+
  import { StyleSheet, View, Text, Button, TouchableOpacity, Image } from 'react-native';
  import FontAwesome5 from "react-native-vector-icons/FontAwesome5"
-
-
 
  interface Props{
     onPress:Function
@@ -16,9 +12,9 @@
 
 export const SearchButton = ( props:Props ) => {
     return (
-            <TouchableOpacity style={styles.button} onPress={() => props.onPress()}>
-                {searchIcon}
-            </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={() => props.onPress()}>
+            {searchIcon}
+        </TouchableOpacity>
     )
 }
 
