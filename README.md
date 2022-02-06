@@ -15,8 +15,8 @@ This project was built using the [React Native](https://reactnative.dev/) framew
 2. Navigate into the folder you cloned the project into in your terminal: `cd /arbetsprovWeKnowIT`.
 3. Open the project in a text editor or IDE of your choice. In the root folder, create a file called `.env`. In that file, write `API_PATH = http://api.geonames.org/searchJSON?username=weknowit&` and save. This is a environment variable to access the api used. 
 3. Write `npm install`.
-4. Write `expo start`.
-Continued beloW are a few alternatives on how to run the app on different platforms 
+4. Write `expo start`. \
+Continued below are a few alternatives on how to run the app on different platforms 
 ### Alternatives for running the app 
 a. To run the app in your web browser, press `w` in your terminal. \
 b. To run the app on an Andorid or iOS emulator on your computer, you need either Android Studio or Xcode respectively. Configure an emulator and open it, then press `a` in your terminal. \
