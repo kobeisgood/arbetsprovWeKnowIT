@@ -1,17 +1,14 @@
 /**
  * Component for the big text used on the top of every page 
  * 
- * (WORK IN PROGRESS)
- * (WILL FINISH STYLING LATER)
  */
 
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 interface Props {
     text: string,
     style?: any
 }
-
 
 export const PageText = ( props:Props ) => {
     return(

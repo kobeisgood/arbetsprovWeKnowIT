@@ -1,8 +1,5 @@
 /**
  * Screen that shows the result from a succesful search 
- * 
- * (WORK IN PROGRESS)
- * (WILL FINISH STYLING LATER)
  */
 
  import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
@@ -61,41 +58,39 @@ export const ResultPage = (props:Props) => {
 
     return (
         <View style={styles.appContainer}>
-            {isLoading ? 
-            <ActivityIndicator size="large" color='0000ff' style={{marginTop:300}}/> 
-            :
+            {isLoading ? <ActivityIndicator size="large" color='0000ff' style={{marginTop:300}}/> :
             <>
-            <View style={styles.topContainer}> 
-                <BackButton navigation={props.navigation}/>
-            </View>
+                <View style={styles.topContainer}> 
+                    <BackButton navigation={props.navigation}/>
+                </View>
 
-            <View>             
-                <PageText text={input}/> 
-            </View>
+                <View>             
+                    <PageText text={input}/> 
+                </View>
 
                 {Array.isArray(result) ? 
                 <View style={styles.contentContainer}> 
-                        {result.map((city:string, index:number) => {
-                            return (
-                                <NavigationButton 
-                                    text={city} 
-                                    onPress={() => handleCityPress(city)} 
-                                    key={index}
-                                />
-                            )
-                        })}
+                    {result.map((city:string, index:number) => {
+                        return (
+                            <NavigationButton 
+                                text={city} 
+                                onPress={() => handleCityPress(city)} 
+                                key={index}
+                            />
+                        )
+                    })}
                 </View>
                     : 
                 <View style={styles.contentContainer}> 
                     <View style={styles.populationContainer}> 
-                    <Text> POPULATION</Text>    
-                    <Text style={styles.resultText}>{formatNumber(result)}</Text> 
+                        <Text> POPULATION</Text>    
+                        <Text style={styles.resultText}>{formatNumber(result)}</Text> 
                     </View>
-                    
                 </View>
                 }
             </>
             }
         </View>
     )
+
 }

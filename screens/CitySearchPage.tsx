@@ -1,21 +1,21 @@
 /**
-Screen where users can input a name of a city and are 
-returned the population of that city
+ * Screen where users can input a name of a city and are 
+ * returned the population of that city
 */
 
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Text, View } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack'
 import { NavigatorParamsList } from '../types'
-
 import React, { useState } from 'react';
 
 import { fetchCityPopulation } from '../api/Cities';
+import { styles } from '../styles/styles';
 
 import { PageText } from '../components/PageText'
 import { BackButton } from '../components/BackButton'
 import { SearchButton } from '../components/SearchButton'
 import { Input }  from '../components/Input'
-import { styles } from '../styles/styles';
+
 
 interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'CitySearch'>
@@ -68,13 +68,13 @@ export const CitySearchPage = ( props:Props ) => {
                 <View style={styles.topContainer}>
                     <BackButton navigation={props.navigation}/>
                 </View>
+
                 <View>
                     <PageText text="SEARCH BY CITY"/>
                 </View>
+
                 <View style={styles.contentContainer}>
-                    {displayErrorMessage && !isLoading && 
-                    <Text> The city you have searched for does not exist, try again! </Text>
-                    }
+                    {displayErrorMessage && !isLoading && <Text> The city you have searched for does not exist, try again! </Text>}
                     <Input placeholder='Enter a city' onChangeText={(val:any) => setCityInput(val)}/>
                     <SearchButton onPress={() => handleSearch(cityInput)}/>
                 </View>
@@ -82,4 +82,5 @@ export const CitySearchPage = ( props:Props ) => {
             }
         </View>
     )
+    
 }

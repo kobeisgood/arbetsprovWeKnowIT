@@ -2,15 +2,12 @@
  * Home screen of app
  */
 
-import { StyleSheet, Text, View, Button } from 'react-native';
+import {Text, View } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack'
 
 import { NavigatorParamsList } from '../types'
 import { styles } from '../styles/styles';
-import { PageText } from '../components/PageText'
 import { NavigationButton } from '../components/NavigationButton'
-
-
 
 interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'Home'>

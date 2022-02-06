@@ -1,9 +1,6 @@
 /**
  * Component for a larger button that can navigate to different screens
  * 
- * 
- * (WORK IN PROGRESS)
- * (WILL FINISH STYLING LATER)
  */
 
 import { StyleSheet, View, TouchableOpacity, Text} from 'react-native';
@@ -17,12 +14,11 @@ import { StyleSheet, View, TouchableOpacity, Text} from 'react-native';
 
 export const NavigationButton = ( props:Props ) => {
     return (
-            <TouchableOpacity 
-            style={styles.button } 
-            onPress={() => props.onPress()}>
-                <Text style={styles.buttonText}>{props.text}</Text>
-            </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={() => props.onPress()}>
+            <Text style={styles.buttonText}>{props.text}</Text>
+        </TouchableOpacity>
     )
+
 }
 
 const styles = StyleSheet.create({
@@ -41,5 +37,4 @@ const styles = StyleSheet.create({
         fontSize: 15,
         color:'black'
     }
-
 })
