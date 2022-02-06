@@ -11,6 +11,12 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'       
     }, 
+    topContainer: {
+        marginTop: 60,
+        alignSelf: 'stretch',
+        flexDirection: 'row',
+
+    }, 
     contentContainer: {
         alignItems: 'center', 
         alignSelf: 'stretch',
@@ -20,14 +26,17 @@ export const styles = StyleSheet.create({
         // temporary stuff
         backgroundColor: "#eaeaea"
     },
-    topContainer: {
-        marginTop: 60,
-        alignSelf: 'stretch',
-        flexDirection: 'row',
-
-    }, 
+    populationContainer: {
+        height: 100,
+        alignSelf: 'stretch', 
+        borderColor: 'black', 
+        borderWidth: 1, 
+        alignItems: 'center',
+        justifyContent:"space-evenly"
+    },
     resultText: {
-        textTransform: 'uppercase'
+        fontSize: 24
     }
-    // add text styling 
+   
+
 }) 

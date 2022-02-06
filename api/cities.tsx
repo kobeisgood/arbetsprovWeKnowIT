@@ -54,3 +54,4 @@ export const fetchCityPopulation = async ( cityInput:string ) => {
     )
         
 }
+

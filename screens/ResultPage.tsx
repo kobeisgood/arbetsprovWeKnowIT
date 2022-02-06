@@ -23,7 +23,7 @@ import { styles } from '../styles/styles';
 
 export const ResultPage = (props:Props) => {
 
-    // parameters that are sent to the page
+    // Parameters that are sent to the page
     const {input, result} = props.route.params 
 
     const [isLoading, setIsLoading] = useState(true)
@@ -49,7 +49,16 @@ export const ResultPage = (props:Props) => {
             })
     }
 
-    // todo fix bug where the results are *in* the topcontainer
+    /**
+     * 
+     * @param number The number to be formatted
+     * @returns A string that has been formatted to divide a number by hundreds 
+     */
+    const formatNumber = (number: number) => {
+        let formattedNumber = number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ')
+        return formattedNumber
+    }
+
     return (
         <View style={styles.appContainer}>
             {isLoading ? 
@@ -78,7 +87,11 @@ export const ResultPage = (props:Props) => {
                 </View>
                     : 
                 <View style={styles.contentContainer}> 
-                    <Text>{result}</Text> 
+                    <View style={styles.populationContainer}> 
+                    <Text> POPULATION</Text>    
+                    <Text style={styles.resultText}>{formatNumber(result)}</Text> 
+                    </View>
+                    
                 </View>
                 }
             </>
