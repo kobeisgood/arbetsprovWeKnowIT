@@ -23,8 +23,6 @@ export const styles = StyleSheet.create({
         height: 300,
         marginBottom: 150,
         justifyContent:"center",
-        // temporary stuff
-        backgroundColor: "#eaeaea"
     },
     populationContainer: {
         height: 100,
@@ -37,6 +35,4 @@ export const styles = StyleSheet.create({
     resultText: {
         fontSize: 24
     }
-   
-
 }) 
