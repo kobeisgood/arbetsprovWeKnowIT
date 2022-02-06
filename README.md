@@ -4,11 +4,11 @@ This project was built using the [React Native](https://reactnative.dev/) framew
 
 
 ## Prerequisites 
-[Node.js](https://nodejs.org/en/) 
-[Git](https://git-scm.com/downloads)
-(Optional) Expo Go app for [Android](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en&gl=US) or [iOS](https://apps.apple.com/se/app/expo-go/id982107779)
-(Optional) [Android Studio](https://developer.android.com/studio?gclid=Cj0KCQiAgP6PBhDmARIsAPWMq6njKz6R1YrZp3h3e2N0O6ALvIK5b2TtYg0yt-R10gP5Vj_uJwshk50aAsKTEALw_wcB&gclsrc=aw.ds)
-(Optional) [Xcode](https://developer.apple.com/xcode/)
+* [Node.js](https://nodejs.org/en/) 
+* [Git](https://git-scm.com/downloads)
+* (Optional) Expo Go app for [Android](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en&gl=US) or [iOS](https://apps.apple.com/se/app/expo-go/id982107779)
+* (Optional) [Android Studio](https://developer.android.com/studio?gclid=Cj0KCQiAgP6PBhDmARIsAPWMq6njKz6R1YrZp3h3e2N0O6ALvIK5b2TtYg0yt-R10gP5Vj_uJwshk50aAsKTEALw_wcB&gclsrc=aw.ds)
+* (Optional) [Xcode](https://developer.apple.com/xcode/)
 
 ## How to run the project 
 1. Open a command terminal and clone the project: `git clone https://github.com/kobeisgood/arbetsprovWeKnowIT.git`.
@@ -22,7 +22,7 @@ b. To run the app on an Andorid or iOS emulator on your computer, you need eithe
 b. For a more realistic experience, download the Expo Go app and through the app scan the QR code shown in the terminal to open the app. 
 
 ## Structure 
-Components: ` /arbetsprovWeKnowIT/components`
-Views: ` /arbetsprovWeKnowIT/screens`
-API handling: ` /arbetsprovWeKnowIT/api`
-Global styling: ` /arbetsprovWeKnowIT/styles`
+* Components: ` /arbetsprovWeKnowIT/components`
+* Views: ` /arbetsprovWeKnowIT/screens`
+* API handling: ` /arbetsprovWeKnowIT/api`
+* Global styling: ` /arbetsprovWeKnowIT/styles`
