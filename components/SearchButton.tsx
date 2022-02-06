@@ -33,6 +33,5 @@ const styles = StyleSheet.create({
         borderWidth:1,
         justifyContent: 'center',
         alignItems:'center',
-        marginBottom: 50
     }
 })

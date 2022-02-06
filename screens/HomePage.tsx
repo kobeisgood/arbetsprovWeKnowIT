@@ -19,7 +19,7 @@ interface Props{
 export const HomePage = ( props:Props ) => {
     return (
         <View style={styles.appContainer}> 
-                        <PageText text="CityPop"></PageText>
+            <Text style={{fontSize: 24, marginTop:120, fontWeight: 'bold'}}> CityPop </Text>
 
             <View style={styles.contentContainer}>
                 <NavigationButton text="SEARCH BY CITY" onPress={() => props.navigation.navigate('CitySearch')} />

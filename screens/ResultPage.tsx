@@ -52,9 +52,10 @@ export const ResultPage = (props:Props) => {
     // todo fix bug where the results are *in* the topcontainer
     return (
         <View style={styles.appContainer}>
-            {isLoading ? <ActivityIndicator size="large" color='0000ff'/> :
+            {isLoading ? 
+            <ActivityIndicator size="large" color='0000ff' style={{marginTop:300}}/> 
+            :
             <>
-
             <View style={styles.topContainer}> 
                 <BackButton navigation={props.navigation}/>
             </View>

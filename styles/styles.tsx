@@ -7,14 +7,15 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     appContainer: {
         flex: 1,
-        backgroundColor: 'white' , // maybe change to white 
-        alignItems: 'center'       
+        backgroundColor: 'white' ,  
+        alignItems: 'center',
+        justifyContent: 'center'       
     }, 
     contentContainer: {
         alignItems: 'center', 
         alignSelf: 'stretch',
         height: 300,
-        marginTop: 20,
+        marginBottom: 150,
         justifyContent:"center",
         // temporary stuff
         backgroundColor: "#eaeaea"
@@ -24,6 +25,9 @@ export const styles = StyleSheet.create({
         alignSelf: 'stretch',
         flexDirection: 'row',
 
+    }, 
+    resultText: {
+        textTransform: 'uppercase'
     }
     // add text styling 
 }) 

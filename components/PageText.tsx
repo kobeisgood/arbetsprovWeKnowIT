@@ -8,7 +8,8 @@
 import { StyleSheet, Text, View, Button } from 'react-native';
 
 interface Props {
-    text: string
+    text: string,
+    style?: any
 }
 
 
@@ -24,6 +25,7 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 24, 
         marginTop:120,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        textTransform: 'uppercase'
     }
 })
