@@ -9,11 +9,12 @@
  import { StackNavigationProp } from '@react-navigation/stack'
  import { NavigatorParamsList } from '../types'
   
- import { BackButton } from '../components/BackButton'
+import { BackButton } from '../components/BackButton'
 import { PageText } from '../components/PageText';
 import { useEffect, useState } from 'react';
 import { NavigationButton } from '../components/NavigationButton';
 import { fetchCityPopulation } from '../api/Cities';
+import { styles } from '../styles/styles';
 
  interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'Result'>,
@@ -22,7 +23,7 @@ import { fetchCityPopulation } from '../api/Cities';
 
 export const ResultPage = (props:Props) => {
 
-    // parameters that are sent to the page
+    // Parameters that are sent to the page
     const {input, result} = props.route.params 
 
     const [isLoading, setIsLoading] = useState(true)
@@ -35,7 +36,7 @@ export const ResultPage = (props:Props) => {
      * Re-renders the results page when a user presses a city from 
      * the list after having searched a country
      * 
-     * @param city The city that was presses 
+     * @param city The city that was pressed
      *  
      * */
        const handleCityPress = (city:string) => {
@@ -48,16 +49,32 @@ export const ResultPage = (props:Props) => {
             })
     }
 
+    /**
+     * 
+     * @param number The number to be formatted
+     * @returns A string that has been formatted to divide a number by hundreds 
+     */
+    const formatNumber = (number: number) => {
+        let formattedNumber = number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ')
+        return formattedNumber
+    }
+
     return (
-        <View>
-            {isLoading ? <ActivityIndicator size="large" color='0000ff'/>
+        <View style={styles.appContainer}>
+            {isLoading ? 
+            <ActivityIndicator size="large" color='0000ff' style={{marginTop:300}}/> 
             :
-            <View> 
+            <>
+            <View style={styles.topContainer}> 
                 <BackButton navigation={props.navigation}/>
+            </View>
+
+            <View>             
+                <PageText text={input}/> 
+            </View>
 
                 {Array.isArray(result) ? 
-                <> 
-                    <PageText text={input}/> 
+                <View style={styles.contentContainer}> 
                         {result.map((city:string, index:number) => {
                             return (
                                 <NavigationButton 
@@ -67,15 +84,17 @@ export const ResultPage = (props:Props) => {
                                 />
                             )
                         })}
-                </>
+                </View>
                     : 
-                <> 
-                    <PageText text={input}/>
-                    <Text> pop: {result}</Text> 
-                </>
+                <View style={styles.contentContainer}> 
+                    <View style={styles.populationContainer}> 
+                    <Text> POPULATION</Text>    
+                    <Text style={styles.resultText}>{formatNumber(result)}</Text> 
+                    </View>
+                    
+                </View>
                 }
-                
-            </View>
+            </>
             }
         </View>
     )

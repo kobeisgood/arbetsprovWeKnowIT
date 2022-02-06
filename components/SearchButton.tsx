@@ -6,6 +6,8 @@
  * (WILL FINISH STYLING LATER eg icon)
  */
  import { StyleSheet, View, Text, Button, TouchableOpacity, Image } from 'react-native';
+ import FontAwesome5 from "react-native-vector-icons/FontAwesome5"
+
 
 
  interface Props{
@@ -14,10 +16,22 @@
 
 export const SearchButton = ( props:Props ) => {
     return (
-        <View> 
-            <TouchableOpacity style={{backgroundColor:"red", height:50}} onPress={() => props.onPress()}>
-                <Text>Search-Icon-Placeholder</Text>
+            <TouchableOpacity style={styles.button} onPress={() => props.onPress()}>
+                {searchIcon}
             </TouchableOpacity>
-        </View>
     )
 }
+
+const searchIcon = <FontAwesome5 name={'search'} solid size={30}/>
+
+const styles = StyleSheet.create({
+    button: {
+        height:50,
+        width:50,
+        borderRadius:25,
+        borderColor:'black',
+        borderWidth:1,
+        justifyContent: 'center',
+        alignItems:'center',
+    }
+})

@@ -17,6 +17,7 @@ import { PageText } from '../components/PageText'
 import { BackButton } from '../components/BackButton'
 import { SearchButton } from '../components/SearchButton'
 import { Input } from '../components/Input';
+import { styles } from '../styles/styles';
 
 interface Props{
     navigation: StackNavigationProp<NavigatorParamsList, 'CountrySearch'>
@@ -49,7 +50,7 @@ export const CountrySearchPage = ( props:Props ) => {
         fetchThreeMostPopulatedCities(country).then(
             (response) => {
                 // if the response isn't an array, display error message 
-                if (Array.isArray(response)) {
+                if (Array.isArray(response) && country !== '') {
                     resetStates()
                     props.navigation.navigate('Result', {
                         input:country,
@@ -63,17 +64,23 @@ export const CountrySearchPage = ( props:Props ) => {
     }
 
     return (
-        <View style={{marginTop:200}}>
+        <View style={styles.appContainer}>
             {isLoading ? <ActivityIndicator size='large' color='0000ff'/> :
-            <View>
+            <>
+            <View style={styles.topContainer}> 
                 <BackButton navigation={props.navigation}/>
+            </View>
+            <View>
                 <PageText text="SEARCH BY COUNTRY"></PageText>
+            </View>
+            <View style={styles.contentContainer}>
                 {displayErrorMessage && !isLoading && 
                 <Text> The country you have searched for does not exist, try again! </Text>
                 }
                 <Input placeholder='Enter a country' onChangeText={(val:any) => setCountryInput(val)}/>
                 <SearchButton onPress={() => handleSearch(countryInput)}/> 
             </View>
+            </>
             }
         </View>
 

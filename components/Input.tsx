@@ -22,8 +22,19 @@ export const Input = (props:Props) => {
                 onChangeText={props.onChangeText} 
                 autoCapitalize='words' 
                 value={props.value} 
-                style={{padding:8, borderWidth:1, borderColor:'#777', margin:8}}
+                style={styles.input}
             />
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    input: {
+        padding:8,
+        borderWidth:1, 
+        borderColor:'#777', 
+        margin:10,
+        width: 250
+
+    }
+})
