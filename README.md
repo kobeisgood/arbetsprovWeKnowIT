@@ -16,10 +16,11 @@ This project was built using the [React Native](https://reactnative.dev/) framew
 3. Open the project in a text editor or IDE of your choice. In the root folder, create a file called `.env`. In that file, write `API_PATH = http://api.geonames.org/searchJSON?username=weknowit&` and save. This is a environment variable to access the api used. 
 3. Write `npm install`.
 4. Write `expo start`.
+Continued beloW are a few alternatives on how to run the app on different platforms 
 ### Alternatives for running the app 
 a. To run the app in your web browser, press `w` in your terminal. \
 b. To run the app on an Andorid or iOS emulator on your computer, you need either Android Studio or Xcode respectively. Configure an emulator and open it, then press `a` in your terminal. \
-b. For a more realistic experience, download the Expo Go app and through the app scan the QR code shown in the terminal to open the app. \
+b. For a more realistic experience, download the Expo Go app and through the app scan the QR code shown in the terminal to open the app. 
 
 ## Structure 
 * Components: ` /arbetsprovWeKnowIT/components`
