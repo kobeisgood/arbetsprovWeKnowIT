@@ -20,7 +20,7 @@ Continued below are a few alternatives on how to run the app on different platfo
 ### Alternatives for running the app 
 a. To run the app in your web browser, press `w` in your terminal. \
 b. To run the app on an Andorid or iOS emulator on your computer, you need either Android Studio or Xcode respectively. Configure an emulator and open it, then press `a` in your terminal. \
-b. For a more realistic experience, download the Expo Go app and through the app scan the QR code shown in the terminal to open the app. 
+c. For a more realistic experience, download the Expo Go app and through the app scan the QR code shown in the terminal to open the app. 
 
 ## Structure 
 * Components: ` /arbetsprovWeKnowIT/components`
