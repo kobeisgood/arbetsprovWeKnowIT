@@ -1,3 +1,3 @@
-declare module '@env' {
-    export const API_PATH: string;
+declare module "@env" {
+  export const API_PATH: string;
 }
