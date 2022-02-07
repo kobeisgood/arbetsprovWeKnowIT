@@ -56,6 +56,16 @@ export const ResultPage = (props: Props) => {
     return formattedNumber;
   };
 
+  /**
+   *
+   * @param resultText The text to be formatted
+   * @returns A string that has been formatted to not contain non-alphabetic characters
+   */
+  const formatResultText = (resultText: string) => {
+    let formattedText = resultText.replace(/[^a-zA-Z]/g, "");
+    return formattedText;
+  };
+
   return (
     <View style={styles.appContainer}>
       {isLoading ? (
@@ -71,7 +81,7 @@ export const ResultPage = (props: Props) => {
           </View>
 
           <View>
-            <PageText text={input} />
+            <PageText text={formatResultText(input)} />
           </View>
 
           {Array.isArray(result) ? (
