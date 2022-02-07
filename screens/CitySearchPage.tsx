@@ -15,6 +15,8 @@ import { PageText } from '../components/PageText'
 import { BackButton } from '../components/BackButton'
 import { SearchButton } from '../components/SearchButton'
 import { Input }  from '../components/Input'
+import { ErrorText } from '../components/ErrorText'
+
 
 
 interface Props{
@@ -74,7 +76,11 @@ export const CitySearchPage = ( props:Props ) => {
                 </View>
 
                 <View style={styles.contentContainer}>
-                    {displayErrorMessage && !isLoading && <Text> The city you have searched for does not exist, try again! </Text>}
+                    
+                    {displayErrorMessage && !isLoading && 
+                    <ErrorText text={'The city you have searched for does not exist, try again!'}/>
+                    }
+
                     <Input placeholder='Enter a city' onChangeText={(val:any) => setCityInput(val)}/>
                     <SearchButton onPress={() => handleSearch(cityInput)}/>
                 </View>
