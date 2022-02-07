@@ -49,8 +49,8 @@ export const CountrySearchPage = ( props:Props ) => {
 
         fetchThreeMostPopulatedCities(country).then(
             (response) => {
-                // if the response isn't an array, display error message 
-                if (Array.isArray(response) && country !== '') {
+                // if the response isn't an array or the country input isn't valid, display error message 
+                if (Array.isArray(response) && country.trim().length !== 0) {
                     resetStates()
                     props.navigation.navigate('Result', {
                         input:country,
